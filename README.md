@@ -51,6 +51,9 @@ and automatically handling:
 
 ## 🏗️ High-Level Architecture
 
+![image alt](https://github.com/achyutuni2001/AskDB/blob/78bd3d40dffe5049aead3a53e8e8e5f081226203/diagram-export-1-29-2026-11_45_41-AM.png)
+
+
 
 ```
 
