@@ -1,115 +1,3 @@
-<!doctype html>
-<html lang="en">
-<head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>AskDB — Natural Language to SQL Query System</title>
-
-<style>
-:root{
-    font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
-}
-
-body{
-    margin:0;
-    padding:40px;
-    background:#ffffff;
-    color:#111827;
-}
-
-main{
-    max-width:1000px;
-    margin:auto;
-}
-
-h1{
-    font-size:2.4rem;
-    margin-bottom:10px;
-}
-
-h2{
-    margin-top:40px;
-    border-bottom:1px solid #e5e7eb;
-    padding-bottom:8px;
-}
-
-h3{
-    margin-top:20px;
-}
-
-p{
-    line-height:1.7;
-}
-
-ul{
-    line-height:1.8;
-}
-
-pre{
-    background:#f6f8fa;
-    padding:16px;
-    border-radius:10px;
-    overflow:auto;
-    border:1px solid #e5e7eb;
-}
-
-code{
-    background:#f3f4f6;
-    padding:3px 6px;
-    border-radius:6px;
-}
-
-table{
-    width:100%;
-    border-collapse:collapse;
-    margin-top:16px;
-}
-
-th,td{
-    border:1px solid #e5e7eb;
-    padding:12px;
-    text-align:left;
-}
-
-th{
-    background:#f9fafb;
-}
-
-blockquote{
-    border-left:4px solid #6366f1;
-    padding:12px;
-    background:#f9fafb;
-    margin:20px 0;
-}
-
-img{
-    width:100%;
-    border-radius:14px;
-    border:1px solid #e5e7eb;
-    margin-top:20px;
-}
-
-.note{
-    background:#f3f4f6;
-    padding:14px;
-    border-radius:10px;
-    margin-top:12px;
-}
-
-.badge{
-    display:inline-block;
-    background:#eef2ff;
-    padding:4px 10px;
-    border-radius:20px;
-    margin-right:6px;
-    font-size:0.85rem;
-}
-</style>
-</head>
-
-<body>
-<main>
-
 <h1>🚀 AskDB — Natural Language to SQL Query System</h1>
 
 <p>
@@ -180,17 +68,53 @@ in a production-style architecture.
 
 ---
 
-<h2>🏗️ System Architecture</h2>
+<h2>🏗️ System Architecture — Production NL2SQL Pipeline</h2>
 
 <p>
-The diagram below illustrates the complete <strong>Natural Language → SQL pipeline</strong>,
-showing how user queries flow through LLM-driven components before reaching the database.
+The diagrams below provide a comprehensive view of AskDB’s architecture, illustrating how a natural language question 
+is transformed into an executable SQL query and ultimately returned as a human-readable response.
+</p>
+
+<p>
+Together, these visuals highlight the internal orchestration of LLM-powered reasoning, vector similarity retrieval, 
+schema-aware decision making, and database interaction — all structured within a modular, production-style pipeline.
+The separation of responsibilities across components improves system reliability, enables independent scaling, 
+and reduces the likelihood of invalid or hallucinated queries.
+</p>
+
+<h3>📊 End-to-End Query Execution Flow</h3>
+
+<p>
+This diagram captures the full lifecycle of a user request as it moves through the backend. Starting at the API layer, 
+the system enriches the query with conversational context, identifies relevant database tables using structured LLM output, 
+retrieves semantically similar examples via embeddings, generates optimized SQL using few-shot prompting, validates the query, 
+executes it against the database, and finally rephrases the result into natural language.
+</p>
+
+<img 
+src="https://raw.githubusercontent.com/achyutuni2001/AskDB/78bd3d40dffe5049aead3a53e8e8e5f081226203/diagram-export-1-29-2026-11_45_41-AM.png"
+alt="AskDB End-to-End Execution Flow"
+/>
+
+<h3>⚙️ Component-Level Orchestration</h3>
+
+<p>
+The following diagram focuses on the interaction between individual services that power AskDB’s intelligence layer. 
+It emphasizes how context management, table selection, retrieval mechanisms, SQL generation, validation, and response 
+rephrasing collaborate to form a deterministic AI workflow.
+</p>
+
+<p>
+By isolating each stage of reasoning, the architecture enhances observability, simplifies debugging, and supports 
+future optimizations such as caching, guardrails, query cost control, and adaptive prompt strategies — all critical 
+characteristics of enterprise-grade AI systems.
 </p>
 
 <img 
 src="https://raw.githubusercontent.com/achyutuni2001/AskDB/3706dc4997922ba3931379b9888f418600b2ca77/diagram-export-1-29-2026-11_49_40-AM.png"
-alt="AskDB Architecture Diagram"
+alt="AskDB Component Architecture"
 />
+
 
 <h3>Pipeline Overview</h3>
 
@@ -345,18 +269,18 @@ export LANGCHAIN_API_KEY="your_key"
 
 ---
 
-<h2>⭐ Final Note</h2>
-
-<p>
-AskDB reflects <strong>real-world AI + backend architecture</strong>, making it ideal for:
-</p>
+<h2>⚙️ Engineering Philosophy Behind AskDB</h2>
 
 <ul>
-<li>Portfolio projects</li>
-<li>Technical interviews</li>
-<li>Enterprise AI tools</li>
-<li>Internal data platforms</li>
+<li>Built with a strong focus on learning by designing real, production-style AI systems.</li>
+<li>Driven by curiosity to explore how large language models can transform traditional data workflows.</li>
+<li>Emphasizes modular architecture to promote scalability, maintainability, and clarity.</li>
+<li>Approaches complexity as an opportunity to deepen system design and backend engineering skills.</li>
+<li>Prioritizes reliability by structuring deterministic pipelines around AI-generated outputs.</li>
+<li>Reflects a passion for building intelligent software that solves practical problems.</li>
+<li>Committed to continuous improvement through experimentation, iteration, and thoughtful design.</li>
 </ul>
+
 
 </main>
 </body>
