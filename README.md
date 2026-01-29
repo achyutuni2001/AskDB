@@ -1,91 +1,209 @@
-```md
-# AskDB – Natural Language to SQL Query System
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>AskDB — Natural Language to SQL Query System</title>
 
-AskDB is an AI-powered backend system that allows users to query relational databases using **plain English** instead of writing SQL.  
-It converts natural language questions into SQL queries, executes them on a connected database, and returns **clear, human-readable answers**.
+<style>
+:root{
+    font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+}
 
-This project demonstrates how **Large Language Models (LLMs)** can be integrated with traditional databases using **LangChain**, **vector similarity**, and **structured prompting** in a production-style architecture.
+body{
+    margin:0;
+    padding:40px;
+    background:#ffffff;
+    color:#111827;
+}
+
+main{
+    max-width:1000px;
+    margin:auto;
+}
+
+h1{
+    font-size:2.4rem;
+    margin-bottom:10px;
+}
+
+h2{
+    margin-top:40px;
+    border-bottom:1px solid #e5e7eb;
+    padding-bottom:8px;
+}
+
+h3{
+    margin-top:20px;
+}
+
+p{
+    line-height:1.7;
+}
+
+ul{
+    line-height:1.8;
+}
+
+pre{
+    background:#f6f8fa;
+    padding:16px;
+    border-radius:10px;
+    overflow:auto;
+    border:1px solid #e5e7eb;
+}
+
+code{
+    background:#f3f4f6;
+    padding:3px 6px;
+    border-radius:6px;
+}
+
+table{
+    width:100%;
+    border-collapse:collapse;
+    margin-top:16px;
+}
+
+th,td{
+    border:1px solid #e5e7eb;
+    padding:12px;
+    text-align:left;
+}
+
+th{
+    background:#f9fafb;
+}
+
+blockquote{
+    border-left:4px solid #6366f1;
+    padding:12px;
+    background:#f9fafb;
+    margin:20px 0;
+}
+
+img{
+    width:100%;
+    border-radius:14px;
+    border:1px solid #e5e7eb;
+    margin-top:20px;
+}
+
+.note{
+    background:#f3f4f6;
+    padding:14px;
+    border-radius:10px;
+    margin-top:12px;
+}
+
+.badge{
+    display:inline-block;
+    background:#eef2ff;
+    padding:4px 10px;
+    border-radius:20px;
+    margin-right:6px;
+    font-size:0.85rem;
+}
+</style>
+</head>
+
+<body>
+<main>
+
+<h1>🚀 AskDB — Natural Language to SQL Query System</h1>
+
+<p>
+AskDB is an <strong>AI-powered backend system</strong> that allows users to query relational databases using
+<strong>plain English instead of writing SQL</strong>.
+</p>
+
+<p>
+It converts natural language questions into SQL queries, executes them on a connected database,
+and returns <strong>clear, human-readable answers</strong>.
+</p>
+
+<p>
+This project demonstrates how <strong>Large Language Models (LLMs)</strong> integrate with traditional
+databases using <strong>LangChain orchestration, vector similarity, and structured prompting</strong>
+in a production-style architecture.
+</p>
 
 ---
 
-## 🚀 What Problem Does AskDB Solve?
+<h2>🔥 What Problem Does AskDB Solve?</h2>
 
-Accessing data from databases traditionally requires:
+<p>Accessing data from databases traditionally requires:</p>
 
-- Knowledge of SQL
-- Understanding of table schemas
-- Writing joins, filters, and aggregations manually
+<ul>
+<li>Knowledge of SQL</li>
+<li>Understanding of table schemas</li>
+<li>Writing joins, filters, and aggregations manually</li>
+</ul>
 
-This creates friction for:
+<p>This creates friction for:</p>
 
-- Business users
-- Analysts
-- Product managers
-- Non-database engineers
+<ul>
+<li>Business users</li>
+<li>Analysts</li>
+<li>Product managers</li>
+<li>Non-database engineers</li>
+</ul>
 
-**AskDB removes this barrier** by allowing users to ask questions like:
+<p><strong>AskDB removes this barrier.</strong></p>
 
-> “Show me customers in France with a credit limit over 20,000”
+<blockquote>
+“Show me customers in France with a credit limit over 20,000.”
+</blockquote>
 
-and automatically handling:
+<p>AskDB automatically handles:</p>
 
-- Schema understanding
-- SQL generation
-- Query execution
-- Result explanation
-
----
-
-## ✨ Key Features
-
-- **Natural Language → SQL** using LLMs (Google Gemini via LangChain)
-- **Works with any SQL database**  
-  (MySQL, PostgreSQL, SQLite, SQL Server)
-- **Schema-aware query generation** using table descriptions
-- **Conversation-aware follow-ups** (multi-turn context supported)
-- **REST API** built with Flask
-- **Modular, production-style pipeline**
-- **Database-agnostic execution** using SQLAlchemy
+<ul>
+<li>Schema understanding</li>
+<li>SQL generation</li>
+<li>Query execution</li>
+<li>Result explanation</li>
+</ul>
 
 ---
 
-## 🏗️ High-Level Architecture
+<h2>✨ Key Features</h2>
 
-![image alt](https://github.com/achyutuni2001/AskDB/blob/78bd3d40dffe5049aead3a53e8e8e5f081226203/diagram-export-1-29-2026-11_45_41-AM.png)
-
-
-
-```
-
-User (English Question)
-          ↓
-Flask REST API (code1.py)
-          ↓
-Conversation Context Manager
-          ↓
-Table Selection (LLM + Structured Output)
-          ↓
-Example Retrieval (Vector Similarity)
-          ↓
-SQL Generation (Few-Shot Prompting)
-          ↓
-SQL Cleaning & Validation
-          ↓
-Database Execution (SQLAlchemy)
-          ↓
-Answer Rephrasing (LLM)
-          ↓
-Final Natural Language Response
-
-```
+<ul>
+<li>Natural Language → SQL using LLMs (Google Gemini via LangChain)</li>
+<li>Works with any SQL database (MySQL, PostgreSQL, SQLite, SQL Server)</li>
+<li>Schema-aware query generation</li>
+<li>Conversation-aware follow-ups</li>
+<li>REST API built with Flask</li>
+<li>Modular production-style pipeline</li>
+<li>Database-agnostic execution via SQLAlchemy</li>
+</ul>
 
 ---
 
-## 📁 Project Structure
+<h2>🏗️ System Architecture</h2>
 
-```
+<p>
+The diagram below illustrates the complete <strong>Natural Language → SQL pipeline</strong>,
+showing how user queries flow through LLM-driven components before reaching the database.
+</p>
 
-AskDB/
+<img 
+src="https://raw.githubusercontent.com/achyutuni2001/AskDB/3706dc4997922ba3931379b9888f418600b2ca77/diagram-export-1-29-2026-11_49_40-AM.png"
+alt="AskDB Architecture Diagram"
+/>
+
+<h3>Pipeline Overview</h3>
+
+<pre><code>User → Flask API → Context Manager → Table Selector
+      → Example Retriever → SQL Generator → SQL Validator
+      → Database → Rephraser → Final Answer
+</code></pre>
+
+---
+
+<h2>📁 Project Structure</h2>
+
+<pre><code>AskDB/
 ├── code1.py
 ├── untitled0.py
 ├── database_table_descriptions.csv
@@ -95,237 +213,151 @@ AskDB/
 ├── TECHNICAL.md
 ├── API.md
 └── test.py
+</code></pre>
 
-````
+<h3>File Responsibilities</h3>
 
-### File Responsibilities
-
-| File | Purpose |
-|---|---|
-| `code1.py` | Flask API entry point (defines `/api`) |
-| `untitled0.py` | Core AI engine (LangChain + NL→SQL + execution + rephrasing) |
-| `database_table_descriptions.csv` | Human-readable schema descriptions used for table selection |
-| `requirements.txt` | Python dependencies |
-| `README.md` | High-level project overview (this file) |
-| `SETUP.md` | Detailed setup & deployment guide |
-| `TECHNICAL.md` | Deep technical architecture (chains, embeddings, vector store, etc.) |
-| `API.md` | Full API contract + examples + error handling |
-| `test.py` | Local testing & experiments |
+<table>
+<tr><th>File</th><th>Purpose</th></tr>
+<tr><td><code>code1.py</code></td><td>Flask API entry point defining <code>/api</code></td></tr>
+<tr><td><code>untitled0.py</code></td><td>Core AI engine (LangChain + NL→SQL + execution)</td></tr>
+<tr><td><code>database_table_descriptions.csv</code></td><td>Schema descriptions for accurate table selection</td></tr>
+<tr><td><code>SETUP.md</code></td><td>Deployment guide</td></tr>
+<tr><td><code>TECHNICAL.md</code></td><td>Deep AI architecture</td></tr>
+<tr><td><code>API.md</code></td><td>API contract and examples</td></tr>
+</table>
 
 ---
 
-## 🧠 How AskDB Works (Step-by-Step)
+<h2>🧠 How AskDB Works</h2>
 
-1. User submits a question in natural language  
-2. Conversation history is loaded (for follow-ups)  
-3. Relevant database tables are identified (schema-aware selection)  
-4. Similar example queries are retrieved using embeddings (vector similarity)  
-5. SQL is generated using few-shot prompting  
-6. Generated SQL is cleaned and validated (removes formatting artifacts)  
-7. SQL is executed against the database  
-8. Raw results are converted into a natural language answer  
-
----
-
-## 🧪 Example Queries
-
-- List all customers in France with credit limit over 20,000
-- What is the highest payment ever made?
-- Show top 5 products by sales
-- How many orders were placed last month?
-- What is the total revenue this year?
-
-### Context-Aware Follow-ups
-
-AskDB maintains conversation context, so follow-up questions work naturally:
-
-- What about the ones from Germany?
-- Show their recent orders
+<ol>
+<li>User submits a natural language question</li>
+<li>Conversation history is loaded</li>
+<li>Relevant tables are identified</li>
+<li>Similar examples retrieved via embeddings</li>
+<li>LLM generates SQL using few-shot prompting</li>
+<li>SQL is validated and cleaned</li>
+<li>Query executes against the database</li>
+<li>Results are converted into natural language</li>
+</ol>
 
 ---
 
-## 🔌 API Usage
+<h2>🔌 API Usage</h2>
 
-AskDB exposes a single REST endpoint for asking questions.
+<h3>Endpoint</h3>
 
-### Endpoint
+<pre><code>POST /api</code></pre>
 
-```http
-POST /api
-````
+<h3>Local URL</h3>
 
-### Full Local URL
+<pre><code>http://localhost:5000/api</code></pre>
 
-```http
-http://localhost:5000/api
-```
+<div class="note">
+The Flask server defines this route using:
+<code>@app.route("/api", methods=["POST"])</code>
+</div>
 
-> **Where does `/api` come from?**
-> The Flask server in `code1.py` defines a route like:
-> `@app.route("/api", methods=["POST"])`
-> That route is the public entry point into the AskDB pipeline.
+<h3>Request</h3>
 
-### Request Body
+<pre><code>{
+"question": "What is the price of 1968 Ford Mustang?"
+}</code></pre>
 
-```json
-{
-  "question": "What is the price of 1968 Ford Mustang?"
-}
-```
+<h3>Response</h3>
 
-### Response
-
-```json
-{
-  "answer": "The price of 1968 Ford Mustang is $95,000."
-}
-```
-
-### Example cURL Request
-
-```bash
-curl -X POST http://localhost:5000/api \
-  -H "Content-Type: application/json" \
-  -d '{
-    "question": "List all customers in France with credit limit over 20000"
-  }'
-```
-
-### Error Responses (Typical)
-
-**400 Bad Request**
-
-```json
-{ "error": "Missing 'question' in the request body" }
-```
-
-**500 Internal Server Error**
-
-```json
-{ "error": "Database connection failed" }
-```
+<pre><code>{
+"answer": "The price of 1968 Ford Mustang is $95,000."
+}</code></pre>
 
 ---
 
-## ⚙️ Installation & Setup (Quick)
+<h2>⚙️ Installation</h2>
 
-### Prerequisites
+<h3>Prerequisites</h3>
 
-* Python 3.8+
-* Any SQL database
-* Google AI (Gemini) API key
-* LangChain API key
+<ul>
+<li>Python 3.8+</li>
+<li>SQL database</li>
+<li>Google Gemini API key</li>
+<li>LangChain API key</li>
+</ul>
 
-### Install Dependencies
+<h3>Install Dependencies</h3>
 
-```bash
-pip install -r requirements.txt
-```
+<pre><code>pip install -r requirements.txt</code></pre>
 
-### Environment Variables
+<h3>Environment Variables</h3>
 
-```bash
-export GOOGLE_API_KEY="your_google_api_key"
-export LANGCHAIN_TRACING_V2="true"
-export LANGCHAIN_PROJECT="askdb"
-export LANGCHAIN_API_KEY="your_langchain_api_key"
-```
+<pre><code>export GOOGLE_API_KEY="your_key"
+export LANGCHAIN_API_KEY="your_key"
+</code></pre>
 
-### Database Configuration
+<h3>Run Server</h3>
 
-Update the DB connection inside `untitled0.py`:
-
-```python
-# MySQL
-db = SQLDatabase.from_uri("mysql+pymysql://user:password@host:port/database")
-
-# PostgreSQL
-db = SQLDatabase.from_uri("postgresql://user:password@host:port/database")
-
-# SQLite
-db = SQLDatabase.from_uri("sqlite:///path/to/database.db")
-```
-
-### Table Descriptions (Required)
-
-Create or update `database_table_descriptions.csv`:
-
-```csv
-table_name,description
-customers,"Customer information including country and credit limit"
-orders,"Order data with dates and total amounts"
-products,"Product catalog with pricing and category details"
-```
-
-> This file is critical for accurate table selection and prevents hallucinated queries.
-
-### Run the Server
-
-```bash
-python code1.py
-```
-
-Server runs at:
-
-```text
-http://localhost:5000
-```
+<pre><code>python code1.py</code></pre>
 
 ---
 
-## 🧩 Tech Stack
+<h2>🧩 Tech Stack</h2>
 
-* **Backend**: Python, Flask
-* **LLM Orchestration**: LangChain
-* **Model**: Google Gemini (via `langchain-google-genai`)
-* **Database Access**: SQLAlchemy (+ driver e.g., PyMySQL)
-* **Vector Store**: ChromaDB
-* **Embeddings**: Google Generative AI embeddings
-
----
-
-## 🔐 Security Considerations
-
-* Store API keys in environment variables (never commit secrets)
-* Use a **read-only database user** in production
-* Add authentication (API key/JWT) before exposing publicly
-* Use HTTPS in production environments
+<span class="badge">Python</span>
+<span class="badge">Flask</span>
+<span class="badge">LangChain</span>
+<span class="badge">Google Gemini</span>
+<span class="badge">SQLAlchemy</span>
+<span class="badge">ChromaDB</span>
 
 ---
 
-## ⚠️ Current Limitations
+<h2>🔐 Security Best Practices</h2>
 
-* Read-only query support
-* Accuracy depends on schema description quality
-* Latency depends on LLM response time and query complexity
-
----
-
-## 🚧 Future Enhancements
-
-* Authentication & role-based access control
-* Query result caching
-* UI dashboard
-* Query explainability + audit logs
-* Multi-database federation
+<ul>
+<li>Never commit API keys</li>
+<li>Use environment variables</li>
+<li>Prefer read-only DB users</li>
+<li>Add authentication before public deployment</li>
+<li>Use HTTPS in production</li>
+</ul>
 
 ---
 
-## 🧾 Documentation Index
+<h2>⚠️ Current Limitations</h2>
 
-* **README.md** — Project overview (this file)
-* **SETUP.md** — Detailed setup & deployment
-* **TECHNICAL.md** — Internal architecture & AI pipeline
-* **API.md** — Full API reference & usage examples
+<ul>
+<li>Read-only queries</li>
+<li>Accuracy tied to schema quality</li>
+<li>LLM latency impacts response time</li>
+</ul>
 
 ---
 
-## ✅ Final Note
+<h2>🚧 Future Enhancements</h2>
 
-AskDB is structured to reflect **real-world backend + AI system design**, making it suitable for:
+<ul>
+<li>Authentication & RBAC</li>
+<li>Query caching</li>
+<li>UI dashboard</li>
+<li>Audit logs</li>
+<li>Multi-database federation</li>
+</ul>
 
-* Portfolio projects
-* Technical interviews
-* AI-powered internal tools
-* Data exploration services
+---
 
+<h2>⭐ Final Note</h2>
+
+<p>
+AskDB reflects <strong>real-world AI + backend architecture</strong>, making it ideal for:
+</p>
+
+<ul>
+<li>Portfolio projects</li>
+<li>Technical interviews</li>
+<li>Enterprise AI tools</li>
+<li>Internal data platforms</li>
+</ul>
+
+</main>
+</body>
+</html>
